@@ -27,12 +27,14 @@
                     </div>
                     <div class="row">
                         <p class="text-{{$status}}">{{$message}}</p>
+                        <b>Nội dung file:</b>
+                        <p>{{$anwser}}</p>
                     </div>
 
                 </div>
             </div>
         </div>
-      
+
     </div>
 </div>
 @endsection

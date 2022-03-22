@@ -23,13 +23,16 @@ class SubmitController extends Controller
     {
         $posts = Posts::find($id);
         
-        return view('layouts.home.submit.index', ['posts' => $posts]);
+        // return view('layouts.home.submit.index', ['posts' => $posts]);
+        return view('layouts.home.exercise.index', ['posts' => $posts]);
     }
     public function post(Request $request, $id)
     {
-        $infoFile=0;
+        $infoFile;
         //Kiểm tra file
+        $url="";
         if($request->hasFile('infoFile')) {
+            // dd(1);
             $filerade = $request->file('infoFile');
             $fileradeData = File::get($filerade->getRealPath());
             $fileradeName = $filerade->getClientOriginalName();
@@ -74,13 +77,14 @@ class SubmitController extends Controller
         $message ='';
         $status='';
         if($chall->answer == $request->answer){
-            $message = "Bạn trả lời đúng. ".$chall->noidungfile;
+            $message = "Bạn trả lời đúng. ";
+            $anwser= $chall->contentFile;
             $status='success';
         }
         else{
             $message = "Bạn trả lời sai.";
                 $status='danger';
         }
-        return view('layouts.home.submit.result', ['message' => $message, 'status'=>$status]);
+        return view('layouts.home.submit.result', ['message' => $message, 'status'=>$status, 'anwser'=>$anwser]);
     }
 }

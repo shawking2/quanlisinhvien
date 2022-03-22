@@ -17,7 +17,7 @@
                     <div class="card border-primary mb-2">
                         <div class="card-header bg-light">
                             <p class="m-0">
-                                <a href="{{route('postManage.index')}}">Nộp bài</a> /
+                                <a href="#">Nộp bài</a>
                             </p>
                             <h3 class="inline">{{$posts->title}}</h3>
                         </div>
@@ -50,7 +50,7 @@
                         <div class="card-header bg-light">Đính kèm</div>
                         <div class="mb-3 @error('imgfile') is-invalid border-danger @enderror">
                             <label for="formFile" class="form-label">Default file input example</label>
-                            <input class="form-control" type="file" id="formFile" name="stFile">
+                            <input class="form-control" type="file" id="formFile" name="infoFile">
                         </div>
 
                         <small id="slugHelp" class="form-text"> @error('imgfile')

@@ -18,7 +18,7 @@
                 </a>
                 <p>Yêu cầu: {{ $post->content }}
                 <p>
-                    <a href="/answer/{{$post->id}}"
+                    <a href="/nopbai/{{$post->id}}"
                         class="btn btn-primary text-center align-content-center align-items-center">Nộp
                         bài</a>
             </div>

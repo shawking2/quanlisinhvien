@@ -19,7 +19,7 @@
                             <p class="m-0">
                                 <a href="{{route('postsManage.index')}}">Thử thách</a> /
                             </p>
-                            <h3 class="inline">{{$posts->title}}</h3>
+                            <h3 class="inline">{{$chall->title}}</h3>
                         </div>
                         <div class="card-body">
                             {{ csrf_field() }}
