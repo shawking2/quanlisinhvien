@@ -1,0 +1,89 @@
+@extends('layouts.app')
+@section('customscript')
+<script src="{{ asset('admin/user/index.js') }}"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery('#table-user').DataTable();
+} );
+</script>
+@endsection
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Bài tập') }}</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                    @endif
+
+                    <div class="container">
+                        <div class="index-tai-lieu-cover text-uppercase wow fadeInDown" data-wow-delay="0.3s">
+                            <h2 class="w-100 text-center py-2 "><b>Bài viết mới nhất</b></h2>
+                        </div>
+                        <div class="row">
+                            @each('layouts.home.list-post', $posts, 'post')
+                            {{-- <h3>post</h3> --}}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 mt-3">
+            <div class="card">
+                <div class="card-header">{{ __('Thử thách') }}</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                    @endif
+
+                    <div class="container">
+                        <div class="index-tai-lieu-cover text-uppercase wow fadeInDown" data-wow-delay="0.3s">
+                            <h2 class="w-100 text-center py-2 "><b>Thử thách mới nhất</b></h2>
+                        </div>
+                        <div class="row">
+                            @each('layouts.home.chall-item', $challs, 'chall')
+                        
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8 mt-3">
+            <div class="card">
+                <div class="card-header">{{ __('Danh sách Thành viên') }}</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                    @endif
+
+                    <div class="container">
+                        <div class="index-tai-lieu-cover text-uppercase wow fadeInDown" data-wow-delay="0.3s">
+                            <h2 class="w-100 text-center py-2 "><b>Danh sách thành viên</b></h2>
+                        </div>
+                        <div class="row">
+                            @include('admin.user.list')
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@include('layouts.notifications')
+@endsection
